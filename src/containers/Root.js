@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { I18nextProvider } from 'react-i18next';
 
 import configureStore from '../store/configureStore';
-import Home from './Home';
+import Home from '../components/Home';
 import i18n from '../i18n';
 
 const store = configureStore();

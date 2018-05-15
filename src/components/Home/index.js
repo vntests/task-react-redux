@@ -1,20 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { translate } from 'react-i18next';
+
+import QuoteList from '../../containers/QuoteList';
+
+import { Container, Row, Col } from 'reactstrap';
 
 import './index.css';
 
-export default class Home extends Component {
-  static propTypes = {
-    title: PropTypes.string
-  };
+const Home = ({ t }) => (
+  <div>
+    <h1>{t('home.title')}</h1>
 
-  render() {
-    const { title } = this.props;
+    <Container>
+      <Row>
+        <Col>
+          <QuoteList />
+        </Col>
+      </Row>
+    </Container>
+  </div>
+);
 
-    return (
-      <div>
-        {title}
-      </div>
-    );
-  }
+Home.propTypes = {
+  t: PropTypes.func.isRequired
 };
+
+export default translate('translations')(Home);
