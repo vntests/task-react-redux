@@ -1,10 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 
 import Home from './';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Home />, div);
-  ReactDOM.unmountComponentAtNode(div);
+jest.mock('react-i18next', () => ({
+  translate: () => Component => {
+    Component.defaultProps = { ...Component.defaultProps, t: () => '' };
+    return Component;
+  }
+}));
+
+jest.mock('../../containers/QuoteList', () => 'QuoteList');
+
+test('<Home /> should render', () => {
+  const component = renderer.create(
+    <Home />
+  );
+
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });

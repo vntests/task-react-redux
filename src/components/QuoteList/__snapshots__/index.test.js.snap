@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QuoteList /> should render 1`] = `<div />`;
+
+exports[`<QuoteList /> should render quote list with N quotes 1`] = `
+<div>
+  <Quote
+    content="Content"
+    link="Link"
+    title="Title"
+  />
+</div>
+`;

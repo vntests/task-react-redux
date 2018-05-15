@@ -1,3 +1,7 @@
-const initialState = {};
+import { combineReducers } from 'redux';
 
-export default (state = initialState, action) => state;
+import { quoteList } from './quote';
+
+export default combineReducers({
+  quoteList
+});

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Quote /> should render 1`] = `
+<blockquote
+  className="blockquote quote"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": undefined,
+      }
+    }
+  />
+  <footer
+    className="blockquote-footer"
+  >
+     (
+    <a
+      href={undefined}
+    />
+    )
+  </footer>
+</blockquote>
+`;
+
+exports[`<Quote /> should render quote with title "Title", content "Content", link "Link" 1`] = `
+<blockquote
+  className="blockquote quote"
+>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Content",
+      }
+    }
+  />
+  <footer
+    className="blockquote-footer"
+  >
+    Title
+     (
+    <a
+      href="Link"
+    >
+      Link
+    </a>
+    )
+  </footer>
+</blockquote>
+`;
