@@ -1,4 +1,4 @@
-import { GET_QUOTE_LIST } from '../constants/quote';
+import { GET_QUOTE_LIST, GET_QUOTE } from '../constants/quote';
 
 const initialState = [];
 
@@ -8,6 +8,11 @@ export const quoteList = (state = initialState, action) => {
       return [
         ...state,
         ...action.quoteList
+      ];
+    case GET_QUOTE:
+      return [
+        ...state,
+        ...action.quote[0]
       ];
     default:
       return state;

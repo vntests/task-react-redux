@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Button } from 'reactstrap';
+
 import Quote from '../Quote';
 
 import './index.css';
 
-const QuoteList = ({ quoteList }) => (
+const QuoteList = ({ quoteList, getQuote }) => (
   <div>
     {quoteList && quoteList.map(quote => (
       <Quote
@@ -15,6 +17,14 @@ const QuoteList = ({ quoteList }) => (
         link={quote.link}
       />
     ))}
+    <Button
+      type="button"
+      block
+      color="primary"
+      onClick={getQuote}
+    >
+      Get one more quote
+    </Button>
   </div>
 );
 
@@ -23,7 +33,8 @@ QuoteList.propTypes = {
     title: PropTypes.string,
     content: PropTypes.string,
     link: PropTypes.string
-  }))
+  })),
+  getQuote: PropTypes.func
 };
 
 export default QuoteList;
