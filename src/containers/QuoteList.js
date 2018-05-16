@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getQuoteList } from '../actions/quote';
+import { getQuoteList, removeQuote } from '../actions/quote';
 
 import QuoteList from '../components/QuoteList';
 
@@ -18,12 +18,13 @@ class QuoteListContainer extends Component {
   };
 
   render() {
-    const { quoteList, getQuote } = this.props;
+    const { quoteList, getQuote, removeQuote } = this.props;
 
     return (
       <QuoteList
         quoteList={quoteList}
         getQuote={getQuote}
+        removeQuote={removeQuote}
       />
     );
   }
@@ -48,6 +49,9 @@ const mapDispatchToProps = dispatch => ({
   },
   getQuote: () => {
     dispatch(getQuoteList({}));
+  },
+  removeQuote: quote => {
+    dispatch(removeQuote(quote))
   }
 });
 
