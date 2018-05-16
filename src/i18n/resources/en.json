@@ -1,5 +1,8 @@
 {
   "home": {
-    "title": "Task React Redux"
+    "title": "Home"
+  },
+  "author": {
+    "title": "Author"
   }
 }
