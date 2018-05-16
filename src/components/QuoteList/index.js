@@ -7,7 +7,7 @@ import Quote from '../Quote';
 
 import './index.css';
 
-const QuoteList = ({ quoteList, getQuote }) => (
+const QuoteList = ({ quoteList, getQuote, removeQuote }) => (
   <div>
     {quoteList && quoteList.map(quote => (
       <Quote
@@ -15,6 +15,7 @@ const QuoteList = ({ quoteList, getQuote }) => (
         title={quote.title}
         content={quote.content}
         link={quote.link}
+        remove={() => { removeQuote(quote) }}
       />
     ))}
     <Button
@@ -34,7 +35,8 @@ QuoteList.propTypes = {
     content: PropTypes.string,
     link: PropTypes.string
   })),
-  getQuote: PropTypes.func
+  getQuote: PropTypes.func,
+  removeQuote: PropTypes.func
 };
 
 export default QuoteList;
