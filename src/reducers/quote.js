@@ -1,4 +1,4 @@
-import { GET_QUOTE_LIST, GET_QUOTE, REMOVE_QUOTE } from '../constants/quote';
+import { GET_QUOTE_LIST, GET_QUOTE, UPDATE_QUOTE, REMOVE_QUOTE } from '../constants/quote';
 
 const initialState = [];
 
@@ -14,6 +14,12 @@ export const quoteList = (state = initialState, action) => {
         ...state,
         ...action.quote[0]
       ];
+    case UPDATE_QUOTE:
+      return state.map(quote => {
+        return (quote.ID === action.quote.id)
+          ? {...quote, ...action.quote}
+          : quote;
+      });
     case REMOVE_QUOTE:
       return state.filter(item => item !== action.quote);
     default:

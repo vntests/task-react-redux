@@ -4,6 +4,20 @@ exports[`<Quote /> should render 1`] = `
 <blockquote
   className="blockquote quote"
 >
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+    type="button"
+  >
+    Edit
+  </button>
+  <button
+    className="btn btn-danger btn-sm"
+    onClick={[Function]}
+    type="button"
+  >
+    Remove
+  </button>
   <div
     dangerouslySetInnerHTML={
       Object {
@@ -27,6 +41,20 @@ exports[`<Quote /> should render quote with title "Title", content "Content", li
 <blockquote
   className="blockquote quote"
 >
+  <button
+    className="btn btn-primary btn-sm"
+    onClick={[Function]}
+    type="button"
+  >
+    Edit
+  </button>
+  <button
+    className="btn btn-danger btn-sm"
+    onClick={[Function]}
+    type="button"
+  >
+    Remove
+  </button>
   <div
     dangerouslySetInnerHTML={
       Object {
