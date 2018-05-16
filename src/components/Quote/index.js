@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 import './index.css';
 
@@ -69,7 +69,6 @@ export default class Quote extends Component {
       title,
       content,
       link,
-      update,
       remove
     } = this.props;
 
