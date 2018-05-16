@@ -10,9 +10,8 @@ import './index.css';
 
 const Home = ({ t }) => (
   <div>
-    <h1>{t('home.title')}</h1>
-
     <Container>
+      <h1>{t('home.title')}</h1>
       <Row>
         <Col>
           <QuoteList />
