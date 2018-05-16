@@ -16,8 +16,11 @@ exports[`<QuoteList /> should render quote list with N quotes 1`] = `
 <div>
   <Quote
     content="Content"
+    id={1}
     link="Link"
+    remove={[Function]}
     title="Title"
+    update={[Function]}
   />
   <button
     className="btn btn-primary btn-block"

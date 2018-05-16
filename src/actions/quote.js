@@ -1,4 +1,4 @@
-import { QUOTE_LIST_API_URL, GET_QUOTE_LIST, REMOVE_QUOTE } from '../constants/quote';
+import { QUOTE_LIST_API_URL, GET_QUOTE_LIST, UPDATE_QUOTE, REMOVE_QUOTE } from '../constants/quote';
 
 export const getQuoteList = ({
   orderby  = 'rand',
@@ -16,6 +16,11 @@ export const getQuoteList = ({
     })
     .catch(err => { console.error(err) });
 };
+
+export const updateQuote = quote => ({
+  type: UPDATE_QUOTE,
+  quote
+})
 
 export const removeQuote = quote => ({
   type: REMOVE_QUOTE,

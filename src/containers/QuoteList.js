@@ -2,32 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getQuoteList, removeQuote } from '../actions/quote';
+import { getQuoteList, updateQuote, removeQuote } from '../actions/quote';
 
 import QuoteList from '../components/QuoteList';
 
 class QuoteListContainer extends Component {
   static propTypes = {
     quoteList: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
       title: PropTypes.string,
       content: PropTypes.string,
       link: PropTypes.string
     })),
     getQuoteList: PropTypes.func,
-    getQuote: PropTypes.func
+    getQuote: PropTypes.func,
+    updateQuote: PropTypes.func,
+    removeQuote: PropTypes.func
   };
-
-  render() {
-    const { quoteList, getQuote, removeQuote } = this.props;
-
-    return (
-      <QuoteList
-        quoteList={quoteList}
-        getQuote={getQuote}
-        removeQuote={removeQuote}
-      />
-    );
-  }
 
   componentDidMount() {
     const { getQuoteList } = this.props;
@@ -36,6 +27,19 @@ class QuoteListContainer extends Component {
       orderby: 'rand',
       postsPerPage: 1
     });
+  }
+
+  render() {
+    const { quoteList, getQuote, updateQuote, removeQuote } = this.props;
+
+    return (
+      <QuoteList
+        quoteList={quoteList}
+        getQuote={getQuote}
+        updateQuote={updateQuote}
+        removeQuote={removeQuote}
+      />
+    );
   }
 }
 
@@ -50,8 +54,11 @@ const mapDispatchToProps = dispatch => ({
   getQuote: () => {
     dispatch(getQuoteList({}));
   },
+  updateQuote: quote => {
+    dispatch(updateQuote(quote));
+  },
   removeQuote: quote => {
-    dispatch(removeQuote(quote))
+    dispatch(removeQuote(quote));
   }
 });
 
