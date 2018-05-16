@@ -13,15 +13,17 @@ class QuoteListContainer extends Component {
       content: PropTypes.string,
       link: PropTypes.string
     })),
-    getQuoteList: PropTypes.func
+    getQuoteList: PropTypes.func,
+    getQuote: PropTypes.func
   };
 
   render() {
-    const { quoteList } = this.props;
+    const { quoteList, getQuote } = this.props;
 
     return (
       <QuoteList
         quoteList={quoteList}
+        getQuote={getQuote}
       />
     );
   }
@@ -43,6 +45,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getQuoteList: options => {
     dispatch(getQuoteList(options))
+  },
+  getQuote: () => {
+    dispatch(getQuoteList({}));
   }
 });
 

@@ -4,9 +4,9 @@ export const getQuoteList = ({
   orderby  = 'rand',
   postsPerPage = 1
 }) => dispatch => {
-  const URL = `${QUOTE_LIST_API_URL}?filter[${orderby}]=rand&filter[posts_per_page]=${postsPerPage}`;
+  const URL = `${QUOTE_LIST_API_URL}?filter[orderby]=${orderby}&filter[posts_per_page]=${postsPerPage}`;
 
-  return fetch(URL)
+  return fetch(URL, { cache: 'no-store' })
     .then(response => response.json())
     .then(quoteList => {
       dispatch({
